@@ -1,5 +1,7 @@
 # overlayGUI
 A simple but powerful GUI python package for overlays.
+
+This package will create a transparent, clickable window that you can draw things such as menus on. You can still interact with the window behind the overlay window.
 (Windows only)
 
 **Documentation**
