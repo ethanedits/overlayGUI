@@ -59,7 +59,13 @@ To create a **checkbox**, we can create a variable and then call the `oGUI.Check
 ```py
 checkbox1 = oGUI.Checkbox(outsideColor, insideColor, x position, y position, width, height, enabledByDefault)
 ```
-We will continue to use checkbox1 as the checkbox variable for the rest of the documentation.
+We will continue to use *checkbox1* as the *checkbox variable* for the rest of the documentation, and the *rest of these functions* should be called in an **infinite loop.**
+
+To *render* the actual checkbox, we must call its `.draw()` function. Usage:
+```py
+checkbox1.draw()
+```
+We need to put this function inbetween of our `startLoop()` and `endLoop()`.
 
 We can also change the *color* of the box if it is hovered over, using the `.is_hovered()` function. Usage:
 ```py
