@@ -10,14 +10,14 @@ This package will create a transparent, clickable window that you can draw thing
 
 To *initialize* oGUI, you need to call
 ```py
-oGui.init()
+oGUI.init()
 ```
 Once you have called this, you can create an **infinite loop** and call two functions, **startLoop()** and **endLoop()**.
 ```py
 while True:
-  oGui.startLoop()
+  oGUI.startLoop()
   
-  oGui.endLoop()
+  oGUI.endLoop()
 ```
 
 *Inbetween* the `start` and `end` loop, you can call the drawing functions.
