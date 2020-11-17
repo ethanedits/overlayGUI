@@ -38,7 +38,7 @@ Here we are creating a variable called `checkbox` which is equal to the `oGUI.Ch
 **Colors**
 ---------------------
 
-*oGUI* comes with a few **color variables** you can access by using `oGUI.(colorname)`
+*oGUI* comes with a few **color variables** you can access by using `oGUI.colorname`
 These are the available colors:
 
 `oGUI.white`
