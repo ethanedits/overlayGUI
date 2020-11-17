@@ -92,8 +92,6 @@ class Checkbox:
 
     if self.checkBox_enabled:
       pygame.draw.rect(screen, self.insideColor, pygame.Rect(self.x, self.y, self.width, self.height))
-      #pygame.draw.line(screen, orange, (100, 200), (150, 250), 3) #Checkmark
-      #pygame.draw.line(screen, orange, (150, 250), (225, 100), 3) #Checkmark
 
     if self.boolMousePos:
       print(mouse.get_pos())
