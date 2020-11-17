@@ -55,14 +55,24 @@ These are the available colors:
 ---------------------
 Creating *checkboxes*
 
-To create a **checkbox**, we can create a variable and then call the `oGUI.Checkbox()` function.
+To create a **checkbox**, we can create a variable and then call the `oGUI.Checkbox()` function. Usage:
 ```py
 checkbox1 = oGUI.Checkbox(outsideColor, insideColor, x position, y position, width, height, enabledByDefault)
 ```
 We will continue to use checkbox1 as the checkbox variable for the rest of the documentation.
 
-We can also change the *color* of the box if it is hovered over, using the `is_hovered()` function.
+We can also change the *color* of the box if it is hovered over, using the `.is_hovered()` function. Usage:
 ```py
 checkbox1.is_hovered(color)
 ```
 The **color** parameter accepts an *RGB value*, for example: `(255, 0, 0)` or it will accept *oGUI colors*. For example, `oGUI.orange`. All the oGUI colors are listed in the **Colors** section, below the Introduction section.
+
+We can use `.printMousePos()` to print the mouse's position in the GUI window to the console. Usage:
+```py
+checkbox1.printMousePos()
+```
+
+We can also *detect* when the checkbox **is enabled** by doing `.is_enabled()`, this will *return a boolean value* (True/False). Usage:
+```py
+checkbox1.is_enabled()
+```
