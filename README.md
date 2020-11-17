@@ -17,3 +17,17 @@ while True:
 ```
 
 *Inbetween* the `start` and `end` loop, you can call the drawing functions.
+
+*Here is an example:*
+```py
+checkbox = oGUI.Checkbox(oGUI.gray, oGUI.orange, 125, 150, 20, 20)
+
+while True:
+    oGUI.startLoop()
+    
+    checkbox.draw()
+
+    oGUI.endLoop()
+```
+Here we are creating a variable called `checkbox` which is equal to the ```py
+oGUI.Checkbox()``` function.
