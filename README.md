@@ -29,5 +29,7 @@ while True:
 
     oGUI.endLoop()
 ```
-Here we are creating a variable called `checkbox` which is equal to the ```py
-oGUI.Checkbox()``` function.
+Here we are creating a variable called `checkbox` which is equal to the 
+```py
+oGUI.Checkbox()
+``` function.
