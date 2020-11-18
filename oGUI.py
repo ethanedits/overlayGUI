@@ -1,6 +1,6 @@
 import pygame, win32api, win32gui, win32con, time
 
-version = 0.2
+version = 0.3
 
 width = win32api.GetSystemMetrics(0)
 height = win32api.GetSystemMetrics(1)
@@ -41,15 +41,6 @@ def startLoop():
 
 def endLoop():
   pygame.display.update()
-
-def drawBox(color, x, y, width, height, thickness):
-  pygame.draw.line(screen, color, (x + width, y), (x, y), thickness) #Top
-  pygame.draw.line(screen, color, (x, y + height), (x, y), thickness) #Left
-  pygame.draw.line(screen, color, (x + width, y), (x + width, y + height), thickness) #Right
-  pygame.draw.line(screen, color, (x, y + height), (x + width, y + height), thickness) #Bottom
-
-def drawRect(color, x, y, width, height):
-  pygame.draw.rect(screen, color, pygame.Rect(x, y, width, height))
 
 class Checkbox:
 
@@ -92,6 +83,37 @@ class Checkbox:
 
     if self.checkBox_enabled:
       pygame.draw.rect(screen, self.insideColor, pygame.Rect(self.x, self.y, self.width, self.height))
+      #pygame.draw.line(screen, orange, (100, 200), (150, 250), 3) #Checkmark
+      #pygame.draw.line(screen, orange, (150, 250), (225, 100), 3) #Checkmark
 
     if self.boolMousePos:
       print(mouse.get_pos())
+
+class Rect:
+  
+  def __init__(self, color, x, y, width, height):
+    self.color = color
+    self.x = x
+    self.y = y
+    self.width = width
+    self.height = height
+  
+  def draw(self):
+    pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.width, self.height))
+
+class Box:
+
+  def __init__(self, color, x, y, width, height, thickness):
+    self.color = color
+    self.x = x
+    self.y = y
+    self.width = width
+    self.height = height
+    self.thickness = thickness
+  
+  def draw(self):
+    pygame.draw.line(screen, self.color, (self.x + self.width, self.y), (self.x, self.y), self.thickness) #Top
+    pygame.draw.line(screen, self.color, (self.x, self.y + self.height), (self.x, self.y), self.thickness) #Left
+    pygame.draw.line(screen, self.color, (self.x + self.width, self.y), (self.x + self.width, self.y + self.height), self.thickness) #Right
+    pygame.draw.line(screen, self.color, (self.x, self.y + self.height), (self.x + self.width, self.y + self.height), self.thickness) #Bottom
+
