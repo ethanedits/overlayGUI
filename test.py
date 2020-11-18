@@ -3,13 +3,15 @@ import oGUI
 oGUI.init()
 
 checkbox = oGUI.Checkbox(oGUI.gray, oGUI.orange, 125, 150, 20, 20)
+rect = oGUI.Rect(oGUI.darkgray, 100, 100, 300, 500)
+box = oGUI.Box(oGUI.lightgray, 100, 100, 300, 500, 5)
 
 while True:
 
     oGUI.startLoop()
 
-    oGUI.drawRect(oGUI.darkgray, 100, 100, 300, 500)
-    oGUI.drawBox(oGUI.lightgray, 100, 100, 300, 500, 5)
+    rect.draw()
+    box.draw()
     checkbox.draw()
 
     oGUI.endLoop()
