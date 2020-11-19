@@ -1,12 +1,16 @@
 import pygame, win32api, win32gui, win32con, time
 
-version = 0.3
+version = 0.4
 
 width = win32api.GetSystemMetrics(0)
 height = win32api.GetSystemMetrics(1)
 screen = pygame.display.set_mode((width, height), pygame.NOFRAME)
 fuchsia = (255, 0, 128)
 hwnd = pygame.display.get_wm_info()["window"]
+
+programIcon = pygame.image.load('icon.png')
+
+pygame.display.set_icon(programIcon)
 
 white = (255, 255, 255)
 red = (255, 0, 0)
@@ -15,6 +19,7 @@ blue = (0, 0, 255)
 cyan = (52, 204, 235)
 orange = (242, 137, 31)
 black = (0, 0, 0)
+yellow = (255, 255, 0)
 gray = (61, 61, 61)
 lightgray = (110, 110, 110)
 darkgray = (41, 41, 41)
@@ -117,3 +122,44 @@ class Box:
     pygame.draw.line(screen, self.color, (self.x + self.width, self.y), (self.x + self.width, self.y + self.height), self.thickness) #Right
     pygame.draw.line(screen, self.color, (self.x, self.y + self.height), (self.x + self.width, self.y + self.height), self.thickness) #Bottom
 
+class Text:
+
+  def __init__(self, color, x, y, FontSize, textStr):
+    pygame.font.init()
+    self.color = color
+    self.x = x
+    self.y = y
+    self.FontSize = FontSize
+    self.textStr = textStr
+    self.FontString = 'Arial'
+    #DropShadow
+    self.dropShadowEnabled = False
+    self.dropShadowColor = black
+    self.dropShadowOffset = 2
+
+  def font(self, fontStr):
+    self.FontString = fontStr
+  
+  def dropShadow(self, color, offset):
+    self.dropShadowEnabled = True
+    self.dropShadowColor = color
+    self.dropShadowOffset = offset
+
+  def draw(self):
+    myfont = pygame.font.SysFont(self.FontString, self.FontSize)
+    textSurface = myfont.render(self.textStr, True, self.color) #Main Text
+
+    if self.dropShadowEnabled:
+      textSurface2 = myfont.render(self.textStr, True, black) #DropShadow
+      screen.blit(textSurface2, (self.x + self.dropShadowOffset, self.y)) #DropShadow
+
+    screen.blit(textSurface, (self.x, self.y)) #Main Text
+
+class Button:
+    def __init__(self, color, x,y,width,height, text=''):
+        self.color = color
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.text = text
