@@ -157,9 +157,34 @@ class Text:
 
 class Button:
     def __init__(self, color, x,y,width,height, text=''):
-        self.color = color
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-        self.text = text
+      self.color = color
+      self.x = x
+      self.y = y
+      self.width = width
+      self.height = height
+      self.text = text
+      self.is_hoverable = False
+      self.hover_color = gray
+      self.button_enabled = False
+
+    def is_enabled(self):
+      return self.button_enabled
+
+    def is_hovered(self, hoveredColor):
+      self.is_hoverable = True
+      self.hover_color = hoveredColor
+
+    def draw(self):
+      pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.width, self.height))
+
+      mouse = pygame.mouse
+      
+      if self.x + self.width > mouse.get_pos()[0] > self.x and self.y + self.height > mouse.get_pos()[1] > self.y:
+        if self.is_hoverable:
+          pygame.draw.rect(screen, self.hover_color, pygame.Rect(self.x, self.y, self.width, self.height))
+
+        if mouse.get_pressed()[0]:
+          print('Clicked')
+          self.button_enabled = True
+          time.sleep(0.15)
+          self.button_enabled = False
