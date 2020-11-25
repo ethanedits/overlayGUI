@@ -50,6 +50,7 @@ These are the available colors:
 `oGUI.black`
 `oGUI.gray`
 `oGUI.purple`
+`oGUI.yellow`
 `oGUI.lightgray`
 `oGUI.darkgray`
 
@@ -85,4 +86,30 @@ checkbox1.printMousePos()
 We can also *detect* when the checkbox **is enabled** by doing `.is_enabled()`, this will *return a boolean value* (True/False). Usage:
 ```py
 checkbox1.is_enabled()
+```
+
+Creating *buttons*
+
+Creating a button is the same as creating a checkbox with all the same functions, but for the button we call `oGUI.Button()`.
+
+Creating *text*
+
+To create **text**, we can create a variable and then call the `oGUI.Text()` function. Usage:
+```py
+myText = oGUI.Text(color, x, y, fontSize, "TextToDisplay")
+```
+
+To *render* the text, we must call its `.draw()` function. Usage:
+```py
+myText.draw()
+```
+
+We can also display a dropshadow for the text by calling the `.dropShadow()` function. Usage:
+```py
+myText.dropShadow(color, pixelOffset)
+```
+
+Additionally, we can change the font of the text by calling `.font()` Usage:
+```py
+myText.font('Roboto')
 ```
