@@ -88,8 +88,6 @@ class Checkbox:
 
     if self.checkBox_enabled:
       pygame.draw.rect(screen, self.insideColor, pygame.Rect(self.x, self.y, self.width, self.height))
-      #pygame.draw.line(screen, orange, (100, 200), (150, 250), 3) #Checkmark
-      #pygame.draw.line(screen, orange, (150, 250), (225, 100), 3) #Checkmark
 
     if self.boolMousePos:
       print(mouse.get_pos())
@@ -156,8 +154,9 @@ class Text:
     screen.blit(textSurface, (self.x, self.y)) #Main Text
 
 class Button:
-    def __init__(self, color, x,y,width,height, text=''):
+    def __init__(self, color, clickedColor, x,y,width,height, text=''):
       self.color = color
+      self.clickedColor = clickedColor
       self.x = x
       self.y = y
       self.width = width
@@ -184,7 +183,7 @@ class Button:
           pygame.draw.rect(screen, self.hover_color, pygame.Rect(self.x, self.y, self.width, self.height))
 
         if mouse.get_pressed()[0]:
-          print('Clicked')
           self.button_enabled = True
-          time.sleep(0.15)
-          self.button_enabled = False
+          pygame.draw.rect(screen, self.clickedColor, pygame.Rect(self.x, self.y, self.width, self.height))
+        else:
+          self.button_enabled = False 
